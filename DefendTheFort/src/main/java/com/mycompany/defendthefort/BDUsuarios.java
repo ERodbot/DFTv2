@@ -11,14 +11,14 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class BDUsuarios2 implements Serializable{
+public class BDUsuarios implements Serializable{
     String filepath = "users.dat";
     ArrayList<User> users;
     
     /**
      *
      */
-    public BDUsuarios2(){
+    public BDUsuarios(){
         users = new ArrayList<User>();
 //       
     }

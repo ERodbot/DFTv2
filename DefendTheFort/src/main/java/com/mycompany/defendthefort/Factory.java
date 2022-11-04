@@ -4,6 +4,8 @@
  */
 package com.mycompany.defendthefort;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author em000
@@ -55,5 +57,14 @@ public class Factory {
     return created;
     }
     
+    
+    
+    static ArrayList<Entity> convertToRealEntity(ArrayList<EntityDummy> array, Grid grid){
+        ArrayList<Entity> res = new ArrayList<Entity>(); 
+        for(EntityDummy dummy: array){ 
+           res.add(Factory.build(dummy.type, dummy, grid));
+       }
+        return res;
+    }
        
 }
