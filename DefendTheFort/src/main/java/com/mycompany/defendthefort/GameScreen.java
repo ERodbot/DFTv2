@@ -59,8 +59,8 @@ public class GameScreen extends javax.swing.JFrame {
             levelGrid.add(new Grid(level));
         }
         initGUIComp();
-        zombies = game.convertToRealEntity(game.zombiesActive, getCurrentLevel());
-        defenses = game.getDefensesActive();
+        zombies = Factory.convertToRealEntity(game.zombiesActive, getCurrentLevel());
+        defenses = Factory.convertToRealEntity(game.defensesActive, getCurrentLevel());
         loadEntities();
         initializaPossibleZombies();
         initializaPossibleDefenses();
@@ -485,13 +485,15 @@ public class GameScreen extends javax.swing.JFrame {
     
     public void loadEntities(){
         //convertir a verdadera 
-        for(Entity entity: game.defenses){ //llamar con array de verdaderas entidades
+        getCurrentLevel().setDefenses(Factory.convertToRealEntity(game.defenses, getCurrentLevel()));
+        getCurrentLevel().setZombies(Factory.convertToRealEntity(game.zombies, getCurrentLevel()));
+        getCurrentLevel().setFlyingEntities(Factory.convertToRealEntity(game.flyingEntities, getCurrentLevel()));
+        for(Entity entity: getCurrentLevel().getDefenses()){ //llamar con array de verdaderas entidades
             getCurrentLevel().getMatrix()[entity.getPosy()][entity.getPosx()].personaje = entity;
         }
-        for(Entity entity: game.getZombies()){
+        for(Entity entity: getCurrentLevel().getZombies()){
             getCurrentLevel().getMatrix()[entity.getPosy()][entity.getPosx()].personaje = entity;
         }
-        getCurrentLevel().setFlyingEntities(game.getFlyingEntities());
     }
     
     

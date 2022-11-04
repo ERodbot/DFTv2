@@ -28,9 +28,7 @@ public class Partida implements Serializable {
     
     
     
-    ArrayList<Entity> convertToRealEntity(ArrayList<EntityDummy> array, Grid grid){
-       for(EntityDummy) 
-    }
+    
 
     public int getLevel() {
         return level;

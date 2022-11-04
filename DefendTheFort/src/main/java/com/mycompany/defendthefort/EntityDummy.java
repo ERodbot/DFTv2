@@ -23,10 +23,23 @@ public class EntityDummy implements Serializable{
     public int vida;
     public int cantidadGolpes, nivel, campos, nivelAparicion, posx, posy;   
     public Register register = new Register(this.nombre, vida); //una clase registro para guardar los ataques recbidos/propiciados;
-    ImageIcon moving; //imagen de la entidad en movimiento
-    ImageIcon attacking;  
+    String movingFilePath; //imagen de la entidad en movimiento
+    String attackingFilePath;  
     
-    EntityDummy(Types type, String bombre, int range, int vida, int cantidadGolpes, int nivel, int nivelAparicion, int posx, int posy, Register register){
+    EntityDummy(Types type, String bombre, int range, int vida, int cantidadGolpes, int nivel, int nivelAparicion, int posx, int posy, Register register, String movingFilePath, String attackingFilePath){
+        this.type = type;
+        this.nombre = nombre;
+        this.range = range;
+        this.vida = vida; 
+        this.cantidadGolpes = cantidadGolpes;
+        this.nivel = nivel;
+        this.campos = campos;
+        this.nivelAparicion = nivelAparicion;
+        this.posx = posx;
+        this.posy = posy;
+        this.register = register;//una clase registro para guardar los ataques recbidos/propiciados;
+        this.movingFilePath = movingFilePath; //imagen de la entidad en movimiento
+        this.attackingFilePath = attackingFilePath;  
         
     }
 }
